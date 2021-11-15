@@ -10,7 +10,7 @@ You may also want to use (In the Pro version of «Live Reload Browser Page», al
 * [Live Alert Browser Page](https://live-alert-browser-page.com)
 * [Live HTML Validator](https://live-html-validator.com)
 
-![Live Reload Browser Page](https://raw.githubusercontent.com/Yuriy-Svetlov/gulp-/main/images/main.png)
+![Live Reload Browser Page](https://raw.githubusercontent.com/Yuriy-Svetlov/gulp-live-reload-bp/main/images/main.png)
 
 
 Main plugin and documentation are in [live-reload-bp](https://github.com/Yuriy-Svetlov/live-reload-bp)
