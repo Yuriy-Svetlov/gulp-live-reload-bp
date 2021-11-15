@@ -1,4 +1,4 @@
-# How to use live-reload-bp (Gulp)
+# How to use gulp-live-reload-bp (Gulp)
 
 **Note**: You also can use module [live-reload-bp](https://github.com/Yuriy-Svetlov/live-reload-bp) instead of 
 [gulp-live-reload-bp](https://github.com/Yuriy-Svetlov/gulp-live-reload-bp), or use [NodeJs](https://github.com/Yuriy-Svetlov/live-reload-bp/tree/main/documentation/examples/nodejs) outside of Gulp. We recommend trying all of these solutions anyway.
