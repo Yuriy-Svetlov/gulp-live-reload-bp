@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Live Reload Browser Page</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="/css/1.css">
+        <link rel="stylesheet" href="/css/2.css">
+        <style>
+            body{
+                margin: 0;
+            }
+
+            h1{
+                font-weight: 500;
+                margin-bottom: 0.5rem;
+                font-weight: 500;
+                line-height: 1.2;
+                font-family: Arial, Helvetica, sans-serif;
+                color: #212529;
+            }
+
+            @keyframes rotating{
+                from{
+                    -ms-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -webkit-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                to{
+                    -ms-transform: rotate(360deg);
+                    -moz-transform: rotate(360deg);
+                    -webkit-transform: rotate(360deg);
+                    -o-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+
+            .rotating{
+                -webkit-animation: rotating 7s linear infinite;
+                -moz-animation: rotating 7s linear infinite;
+                -ms-animation: rotating 7s linear infinite;
+                -o-animation: rotating 7s linear infinite;
+                animation: rotating 7s linear infinite;
+            }
+
+            .logo{
+                width: 55px; 
+                height: 55px; 
+                position: absolute;
+            }
+
+            .background{
+                position: absolute; 
+                width: 100%; 
+                height: 100%;
+                background: linear-gradient(135deg, #f4fcff 18%, #e7f3f1 62%, #ffeddd);
+                z-index: 0;
+            }
+
+            .con{
+                position: absolute;
+                top: 50%; 
+                width: 100%; 
+                z-index: 1;
+            }
+
+            .con_child{
+                position: absolute;
+                top: -60%;
+                transform: translateY(-60%);
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+                width: 490px; 
+                display: inline-block;
+                
+                background-color: #fff;
+                box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+                border-radius: 2px; 
+                overflow: hidden;
+                outline: 1px solid black;
+                outline-offset: -10px;
+                outline-style: dotted;
+                outline-color: #87c2da;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="background"></div>
+        <div class="con">
+            <div class="con_child">
+                <div style="margin: 0 auto; text-align: center; padding: 30px;">
+                    <h1>Live Reload Browser Page</h1>
+                </div>
+
+                <div style="height: 55px; padding: 0px 10px 30px 10px; position: relative; display: flex; justify-content: center; align-items: center;">
+                    <img class="logo" src="/img/1.png" alt="logo" style="z-index: 0;">
+                    <img class="logo rotating" src="/img/2.png" alt="logo" style="z-index: 1;">
+                </div>
+
+                <div class="bl1 bl2 bl3"></div>
+            </div>
+        </div>
+    </body>
+</html>

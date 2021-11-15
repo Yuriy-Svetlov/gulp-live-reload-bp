@@ -1,0 +1,27 @@
+{
+  "name": "gulp-live-reload-bp",
+  "version": "1.0.0",
+  "description": "This module is for a browser plugin that reload the browser page in real time.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp",
+    "browser",
+    "page",
+    "live",
+    "reload"
+  ],
+  "author": "Yuri Svetlov",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yuriy-Svetlov/gulp-live-reload-bp"
+  },
+  "homepage": "https://live-reload-browser-page.com",
+  "bugs": "https://github.com/Yuriy-Svetlov/gulp-live-reload-bp/issues",
+  "dependencies": {
+    "live-reload-bp": "^1.0.0"
+  }
+}
