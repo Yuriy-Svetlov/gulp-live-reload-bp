@@ -1,7 +1,7 @@
 
 const 
   gulp = require('gulp'),
-  liveReloadBP = require("live-reload-bp"),
+  LiveReload = require("gulp-live-reload-bp"),
   liveAlertFormatterSass = require("live-alert-bp-formatter-sass"),
   plumber = require('gulp-plumber'),
   gulpSass = require('gulp-sass'),
@@ -15,7 +15,7 @@ const
   cssDest = 'dest/css';
 
 const 
-  liveReload = new liveReloadBP({
+  liveReload = new LiveReload({
     host: '127.0.0.1', 
     port: '8080'
   });
@@ -27,16 +27,9 @@ function css() {
     .pipe(gulpSass().on('error', gulpSass.logError))   
     .pipe(postcss([
         cssnano({zindex: false, reduceIdents: false})
-    ]))     
+    ]))
+    .pipe(liveReload.reloadPage())
     .pipe(gulp.dest(cssDest));
-}
-
-
-function reloadPage(cb){
-    liveReload.reloadPage();
-    liveReload.resetError();
-
-  cb();
 }
 
 
@@ -73,11 +66,10 @@ function watch(){
   liveReload.run();
   webServer();
 
-  gulp.watch(cssWatch, gulp.series(css, reloadPage));
+  gulp.watch(cssWatch, gulp.series(css));
 }
 
 
 exports.css = css;
 exports.watch = watch;
-exports.reloadPage = reloadPage;
 exports.start = gulp.series(css, watch);

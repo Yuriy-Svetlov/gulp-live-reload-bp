@@ -1,10 +1,10 @@
-# Example - 2 (Gulp) (live-reload-bp)
+# Example - 2 (Gulp) (gulp-live-reload-bp)
 
 Simple use of **Live Reload Browser Page** and **Live Alert Browser Page**.
 
 [live-alert-bp](https://github.com/Yuriy-Svetlov/live-alert-bp)
 
-**1.** Download or copy [example-2](https://github.com/Yuriy-Svetlov/live-reload-bp/tree/main/documentation/examples/gulp/2)
+**1.** Download or copy [example-2](https://github.com/Yuriy-Svetlov/gulp-live-reload-bp/tree/main/examples/2)
 
 **2.** Go to the directory with `gulpfile.js` and run the command in console: 
 

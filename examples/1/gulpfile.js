@@ -27,7 +27,7 @@ function css() {
   .pipe(postcss([
       cssnano({zindex: false, reduceIdents: false})
   ]))
-  .pipe(liveReload.reloadPage());     
+  .pipe(liveReload.reloadPage())    
   .pipe(gulp.dest(cssDest));
 }
 

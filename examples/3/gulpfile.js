@@ -1,7 +1,7 @@
 
 const 
   gulp = require('gulp'),
-  liveReloadBP = require("live-reload-bp"),
+  LiveReload = require("gulp-live-reload-bp"),
   plumber = require('gulp-plumber'),
   gulpSass = require('gulp-sass')(require('sass')),
   postcss = require('gulp-postcss'),
@@ -31,7 +31,7 @@ const
   jsDest = 'dest/js';
 
 const 
-  liveReload = new liveReloadBP({
+  liveReload = new LiveReload({
     host: '127.0.0.1', 
     port: '8080'
   });
@@ -44,6 +44,13 @@ function cssMain1() {
   .pipe(postcss([
     cssnano({zindex: false, reduceIdents: false})
   ]))     
+  .pipe(liveReload.reloadPage({
+    action: 'page_reload',
+    partial_reload: {
+      tag: 'link',    
+      href: '/css/1.css'
+    }      
+  }))
   .pipe(gulp.dest(cssMain1Dest));
 }
 
@@ -55,6 +62,13 @@ function cssMain2() {
   .pipe(postcss([
     cssnano({zindex: false, reduceIdents: false})
   ]))     
+  .pipe(liveReload.reloadPage({
+    action: 'page_reload',
+    partial_reload: {
+      tag: 'link',    
+      href: '/css/2.css'
+    }      
+  }))
   .pipe(gulp.dest(cssMain2Dest));
 }
 
@@ -76,45 +90,7 @@ function html() {
     trimCustomFragments: true,
     //ignoreCustomFragments: [ (/\{\%[^\%]*?\%\}(\s)?/g) ],
   }))
-  .pipe(gulp.dest(htmlDest));
-}
-
-
-function js(){
-  return gulp.src(jsSrc)
-  .pipe(minifyJS()) 
-  .pipe(gulp.dest(jsDest));
-}
-
-
-function reloadCssMain1(cb){
-  liveReload.reloadPage({
-    action: 'page_reload',
-    partial_reload: {
-      tag: 'link',    
-      href: '/css/1.css'
-    }      
-  });
-
-  cb();
-}
-
-
-function reloadCssMain2(cb){
-  liveReload.reloadPage({
-    action: 'page_reload',
-    partial_reload: {
-      tag: 'link',    
-      href: '/css/2.css'
-    }      
-  });
-
-  cb();
-}
-
-
-function reloadHtml(cb){
-  liveReload.reloadPage({
+  .pipe(liveReload.reloadPage({
     action: 'page_reload',
     partial_reload: {
       tag: 'html',    
@@ -122,14 +98,15 @@ function reloadHtml(cb){
         force_load_images: false // Usually, images are taken from the browser cache when the HTML is partially reloaded.
       }
     }      
-  });
-
-  cb();
+  }))
+  .pipe(gulp.dest(htmlDest));
 }
 
 
-function reloadJs(cb){
-  liveReload.reloadPage({
+function js(){
+  return gulp.src(jsSrc)
+  .pipe(minifyJS()) 
+  .pipe(liveReload.reloadPage({
     action: 'page_reload',
     partial_reload: {
       tag: 'script',    
@@ -142,9 +119,8 @@ function reloadJs(cb){
         }        
       }
     }      
-  });
-
-  cb();
+  }))
+  .pipe(gulp.dest(jsDest));
 }
 
 
@@ -153,14 +129,14 @@ function watch(){
   webServer();
 
   // CSS
-  gulp.watch(cssMain1Watch, gulp.series(cssMain1, reloadCssMain1));
-  gulp.watch(cssMain2Watch, gulp.series(cssMain2, reloadCssMain2));
+  gulp.watch(cssMain1Watch, gulp.series(cssMain1));
+  gulp.watch(cssMain2Watch, gulp.series(cssMain2));
 
   // HTML
-  gulp.watch(htmlWatch, gulp.series(html, reloadHtml));
+  gulp.watch(htmlWatch, gulp.series(html));
 
   // JS
-  gulp.watch(jsWatch, gulp.series(js, reloadJs));
+  gulp.watch(jsWatch, gulp.series(js));
 }
 
 
@@ -169,8 +145,4 @@ exports.cssMain2 = cssMain2;
 exports.html = html;
 exports.js = js;
 exports.watch = watch;
-exports.reloadCssMain1 = reloadCssMain1;
-exports.reloadCssMain2 = reloadCssMain2;
-exports.reloadJs = reloadJs;
-exports.reloadHtml = reloadHtml;
 exports.start = gulp.series(cssMain1, cssMain2, html, js, watch);

@@ -1,6 +1,8 @@
-# Example - 1 (Gulp) (live-reload-bp)
+# Example - 1 (Gulp) (gulp-live-reload-bp)
 
-**1.** Download or copy [example-1](https://github.com/Yuriy-Svetlov/live-reload-bp/tree/main/documentation/examples/gulp/1)
+Simple use of **Live Reload Browser Page**.
+
+**1.** Download or copy [example-1](https://github.com/Yuriy-Svetlov/gulp-live-reload-bp/tree/main/examples/1)
 
 **2.** Go to the directory with `gulpfile.js` and run the command in console: 
 
