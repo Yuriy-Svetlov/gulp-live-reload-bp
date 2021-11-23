@@ -19,8 +19,10 @@ Main plugin and documentation are in [live-reload-bp](https://github.com/Yuriy-S
 
 **Step - 1** 
 
-You need to install the browser plugin [Live Reload Browser Page](https://live-reload-browser-page.com) if you have not already installed it for:
-  * [Google Chrome](#)
+You need to install the browser plugin [Live Reload Browser Page](https://live-reload-browser-page.com), choose the version you need:
+  * For Google Chrome:
+    * [Live Reload Browser Page](https://chrome.google.com/webstore/detail/live-reload-browser-page/ohidagfdjacdilgoklcmbjfkmplciemd)
+    * [Live Reload Browser Page (Pro)](https://chrome.google.com/webstore/detail/live-reload-browser-page/njclcjfoekkdmgdgdfdididdffpkcfgj)
 
 **Step - 2**
 ```shell

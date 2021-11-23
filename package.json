@@ -1,6 +1,6 @@
 {
   "name": "gulp-live-reload-bp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This module is for a browser plugin that reload the browser page in real time.",
   "main": "index.js",
   "scripts": {
